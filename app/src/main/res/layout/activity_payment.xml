@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    tools:context=".PaymentActivity">
+
+    <!-- Close Button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginBottom="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClose"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/close"
+            app:icon="@drawable/ic_close" />
+
+    </LinearLayout>
+
+    <!-- Transaction Alert -->
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.SwipeShield.Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:cardBackgroundColor="?attr/colorErrorContainer">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/ic_alert"
+                app:tint="?attr/colorOnErrorContainer" />
+
+            <TextView
+                android:id="@+id/tvTransactionAlert"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/transaction_detected"
+                android:textAppearance="@style/TextAppearance.SwipeShield.Body"
+                android:textColor="?attr/colorOnErrorContainer"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Payment Card -->
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.SwipeShield.Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center">
+
+            <!-- UPI Payment Icon -->
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_upi_payment"
+                android:background="@drawable/circle_background"
+                android:padding="20dp"
+                app:tint="?attr/colorOnPrimaryContainer" />
+
+            <TextView
+                android:id="@+id/tvPaymentInstruction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap 'Pay Now' to open your UPI app"
+                android:textAppearance="@style/TextAppearance.SwipeShield.Title"
+                android:gravity="center"
+                android:layout_marginBottom="24dp"
+                tools:text="Tap 'Pay Now' to open your UPI app and pay ₹1,250" />
+
+            <!-- Payment Details -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:id="@+id/tvPaymentTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/payment_to"
+                    android:textAppearance="@style/TextAppearance.SwipeShield.Body"
+                    android:layout_marginBottom="4dp"
+                    tools:text="Payment to: user@paytm" />
+
+                <TextView
+                    android:id="@+id/tvPaymentAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/amount"
+                    android:textAppearance="@style/TextAppearance.SwipeShield.Headline"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="28sp"
+                    tools:text="₹1,250" />
+
+            </LinearLayout>
+
+            <!-- Pay Now Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPayNow"
+                style="@style/Widget.SwipeShield.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/repay_now"
+                android:textSize="18sp"
+                app:icon="@drawable/ic_upi_payment"
+                app:iconGravity="textStart" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Transaction Details Card -->
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.SwipeShield.Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transaction Details"
+                android:textAppearance="@style/TextAppearance.SwipeShield.Title"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tvMerchantDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/merchant"
+                android:textAppearance="@style/TextAppearance.SwipeShield.Body"
+                android:layout_marginBottom="4dp"
+                tools:text="Merchant: Amazon" />
+
+            <TextView
+                android:id="@+id/tvCardDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/card_ending"
+                android:textAppearance="@style/TextAppearance.SwipeShield.Body"
+                android:layout_marginBottom="4dp"
+                tools:text="Card ending: 1234" />
+
+            <TextView
+                android:id="@+id/tvTimeDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/transaction_time"
+                android:textAppearance="@style/TextAppearance.SwipeShield.Body"
+                tools:text="Time: 2:30 PM" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
+
